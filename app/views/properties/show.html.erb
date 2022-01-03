@@ -1,0 +1,17 @@
+<div class="property-card">
+  <%= @property.public_id%>
+  </br>
+  <%= @property.title %>
+  </br>
+  <%= @property.description%>
+  </br>
+  <% @property.property_images.each do |image| %>
+    <%= image_tag image.url %>
+  <% end %>
+  </br>
+  <%= @property.property_type%>
+  </br>
+  <%= @property.location.name %>
+  
+</div>
+</br></br>
