@@ -223,6 +223,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   dotenv-rails
   easy_broker
+  httparty
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
