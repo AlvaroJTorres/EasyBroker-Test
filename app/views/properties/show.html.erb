@@ -12,6 +12,20 @@
   <%= @property.property_type%>
   </br>
   <%= @property.location.name %>
-  
+  </br>
+  <%= form_with url: create_contact_property_path, authenticity_token: false do |form| %>
+    <%= form.label :name, class: "label"%>
+    <%= form.text_field :name, placeholder: "Something", class: "input", :required => true %>
+    <%= form.label :phone, class: "label"%>
+    <%= form.number_field :phone, placeholder: "Something", class: "input", :required => true %>
+    <%= form.label :email, class: "label"%>
+    <%= form.email_field :email, placeholder: "Something", class: "input", :required => true %>
+    <%= form.label :message, class: "label"%>
+    <%= form.text_area :message, placeholder: "Something", class: "input", :required => true %>
+    <%= form.label :source, class: "label"%>
+    <%= form.url_field :source, placeholder: "Something", class: "input", :required => true %>
+
+    <%= form.submit class: "submit" %>
+  <% end %>
 </div>
 </br></br>
