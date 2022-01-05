@@ -1,5 +1,12 @@
 <section class="container">
-  <div class="properties">
+  <div class="properties-container">
     <%= render partial: "property", collection: @properties%>
+  </div>
+  <% page_number = 1 %>
+  <div class="pagination-container">
+    <% until  page_number > total_pages(@results) do %>
+      <%= link_to page_number, properties_path(:page => page_number) %>
+      <% page_number+=1 %>
+    <% end %>
   </div>
 </section>
