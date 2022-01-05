@@ -1,17 +1,27 @@
-<div class="property-card">
-  <%= property.public_id%>
-  </br>
-  <%= link_to property_path(property.public_id) do %>
-    <% property.title %>
-  <% end %>
-  </br>
-  <%= property.property_type%>
-  </br>
-  <%= property.location%>
-  </br>
-  <% if property.title_image_thumb%>
-    <%= image_tag property.title_image_thumb, class: "property-image"%>
-  <% end %>
-  </br>
+<div class="properties-card">
+  <div>
+    <%= property.public_id %>
+  </div>
+
+  <div>
+    <%= property.title %>
+  </div>
+
+  <div class="properties-image">
+    <% if property.title_image_thumb%>
+      <%= image_tag property.title_image_thumb%>
+    <% else %>
+      <%= image_tag("default.jpg", width: 200)%>
+    <% end %>
+  </div>
+
+  <div>
+    <%= property.property_type%>
+  </div>
+
+  <div>
+    <%= property.location%>
+  </div>
+
+  <%= link_to '', property_path(property.public_id), class: "properties-link" %>
 </div>
-</br></br>
