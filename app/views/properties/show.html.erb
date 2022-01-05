@@ -1,31 +1,56 @@
-<div class="property-card">
-  <%= @property.public_id%>
-  </br>
-  <%= @property.title %>
-  </br>
-  <%= @property.description%>
-  </br>
-  <% @property.property_images.each do |image| %>
-    <%= image_tag image.url %>
-  <% end %>
-  </br>
-  <%= @property.property_type%>
-  </br>
-  <%= @property.location.name %>
-  </br>
-  <%= form_with url: create_contact_property_path do |form| %>
-    <%= form.label :name, class: "label"%>
-    <%= form.text_field :name, placeholder: "Something", class: "input", :required => true %>
-    <%= form.label :phone, class: "label"%>
-    <%= form.text_field :phone, placeholder: "Something", class: "input", :required => true %>
-    <%= form.label :email, class: "label"%>
-    <%= form.email_field :email, placeholder: "Something", class: "input", :required => true %>
-    <%= form.label :message, class: "label"%>
-    <%= form.text_area :message, placeholder: "Something", class: "input", :required => true %>
-    <%= form.label :source, class: "label"%>
-    <%= form.text_field :source, placeholder: "Something", class: "input", :required => true %>
+<%= javascript_pack_tag "validation" %>
+<div class="property-container">
+  <div class="property-card">
+    <h1 class="property-title">
+      <%= @property.title%>
+    </h1>
+    <p>
+      <%= @property.public_id%>
+    </p>
+    <p>
+      <%= @property.description%>
+    </p>
+    <div class="carousel-inner">
+        <% @property.property_images.each do |image| %>
+          <div class="carousel-item">
+            <%= image_tag image.url, class: "d-block w-100" %>
+          </div>
+        <% end %>
+    </div>
+    <p>
+      <%= @property.property_type%>
+    </p>
+    <p>
+      <%= @property.location.name %>
+    </p>
+  </div>
 
-    <%= form.submit class: "submit" %>
-  <% end %>
+  <div class="form-area">
+    <h1>Create a Contact </h1>
+    <%= form_with url: create_contact_property_path, class: "contact-form" do |form| %>
+      <div>
+        <%= form.label :name, class: "label"%>
+        <%= form.text_field :name, placeholder: "Write your name...", class: "input", :required => true %>
+      </div>
+      <div>
+        <%= form.label :phone, class: "label"%>
+        <%= form.text_field :phone, placeholder: "5559090909", class: "input", :required => true %>
+      </div>
+      <div>
+        <%= form.label :email, class: "label"%>
+        <%= form.email_field :email, placeholder: "Write your email...", class: "input", :required => true %>
+      </div>
+      <div>
+        <%= form.label :message, class: "label"%>
+        <%= form.text_area :message, placeholder: "Write a message...", class: "input", :required => true %>
+      </div>
+      <div>
+        <%= form.label :source, class: "label"%>
+        <%= form.text_field :source, placeholder: "Write contact page...", class: "input", :required => true %>
+      </div>
+
+      <%= form.submit class: "submit" %>
+    <% end %>
+  </div>
 </div>
-</br></br>
+
