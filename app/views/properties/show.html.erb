@@ -1,32 +1,40 @@
-<%= javascript_pack_tag "slideshow" %>
-
 <div class="property-container">
   <div class="property-card">
     <h1 class="property-title">
       <%= @property.title%>
     </h1>
+    <h2>Public ID</h2>
     <p>
       <%= @property.public_id%>
     </p>
+
+    <h2>Description</h2>
     <p>
       <%= @property.description%>
     </p>
 
-    <div class="slideshow-container">
-      <% @property.property_images.each_with_index do |image, i| %>
-        <div class="mySlides fade">
-          <div class="numbertext"> <%= i + 1 %> / <%= @property.property_images.size %> </div>
-          <%= image_tag image.url %>
-        </div>
-      <% end %>
+    <% if !@property.property_images.empty? %>
+      <div class="slideshow-container">
+        <% @property.property_images.each_with_index do |image, i| %>
+          <div class="mySlides fade">
+            <div class="numbertext"> <%= i + 1 %> / <%= @property.property_images.size %> </div>
+            <%= image_tag image.url %>
+          </div>
+        <% end %>
 
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+    <% else %>
+      <%= image_tag("default.jpg", width: 672)%>
+    <% end %>
     
+    <h2>Property Type</h2>
     <p>
       <%= @property.property_type%>
     </p>
+
+    <h2>Location</h2>
     <p>
       <%= @property.location.name %>
     </p>
@@ -35,28 +43,28 @@
   <div class="form-area">
     <h1>Create a Contact </h1>
     <% flash.each do |type, msg| %>
-      <div>
+      <div class="form-response">
         <%= msg %>
       </div>
     <% end %>
     <%= form_with url: create_contact_property_path, class: "contact-form" do |form| %>
-      <div>
+      <div class="form-input">
         <%= form.label :name, class: "label"%>
         <%= form.text_field :name, placeholder: "Write your name...", class: "input", :required => true %>
       </div>
-      <div>
+      <div class="form-input">
         <%= form.label :phone, class: "label"%>
         <%= form.text_field :phone, placeholder: "5559090909", class: "input", :required => true %>
       </div>
-      <div>
+      <div class="form-input">
         <%= form.label :email, class: "label"%>
         <%= form.email_field :email, placeholder: "Write your email...", class: "input", :required => true %>
       </div>
-      <div>
+      <div class="form-input">
         <%= form.label :message, class: "label"%>
         <%= form.text_area :message, placeholder: "Write a message...", class: "input", :required => true %>
       </div>
-      <div>
+      <div class="form-input">
         <%= form.label :source, class: "label"%>
         <%= form.text_field :source, placeholder: "Write contact page...", class: "input", :required => true %>
       </div>
@@ -66,3 +74,4 @@
   </div>
 </div>
 
+<%= javascript_pack_tag "slideshow" %>

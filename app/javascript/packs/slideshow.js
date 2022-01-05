@@ -1,31 +1,32 @@
-console.log("HOLAAAAAAAAAAAAAAAa");
+let slideIndex = 1;
+showSlides(slideIndex);
 
-window.addEventListener("DOMContentLoaded", (_event) => {
-  console.log("HEEEEEEEEEEEEEEEEEEEERE");
-  var slideIndex = 1;
-  showSlides(slideIndex);
+const nextSlide = document.querySelector(".next");
+const prevSlide = document.querySelector(".prev");
 
-  // Next/previous controls
-  window.plusSlides = function (n) {
-    showSlides((slideIndex += n));
-  };
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
 
-  // Thumbnail image controls
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {
-      slideIndex = 1;
-    }
-    if (n < 1) {
-      slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slides[slideIndex - 1].style.display = "block";
+function showSlides(n) {
+  let i;
+  const slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {
+    slideIndex = 1;
   }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+}
+
+nextSlide.addEventListener("click", () => {
+  plusSlides(1);
 });
 
-console.log("ADIOOOOOOOOOOOOOOOOOOOOOOOS");
+prevSlide.addEventListener("click", () => {
+  plusSlides(-1);
+});
