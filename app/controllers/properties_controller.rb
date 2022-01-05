@@ -5,6 +5,7 @@ class PropertiesController < ApplicationController
 
   def index
     @results = @client.properties.search(limit: 15, search: { statuses: [:published] })
+    (params[:page].to_i - 1).times.collect { @results.next_page } if params[:page]
     @properties = @results.response.content
   end
 
