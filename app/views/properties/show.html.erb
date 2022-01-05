@@ -74,4 +74,6 @@
   </div>
 </div>
 
-<%= javascript_pack_tag "slideshow" %>
+<% if !@property.property_images.empty? %>
+  <%= javascript_pack_tag "slideshow" %>
+<% end %>
