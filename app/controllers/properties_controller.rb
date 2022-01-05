@@ -24,7 +24,7 @@ class PropertiesController < ApplicationController
 
     @response = HTTParty.post('https://api.stagingeb.com/v1/contact_requests', contact_options)
 
-    redirect_to property_path(params[:id])
+    redirect_to property_path(params[:id]), notice: "Contact created, status: #{@response.parsed_response['status']}"
   end
 
   private
