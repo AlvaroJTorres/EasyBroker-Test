@@ -8,6 +8,6 @@ class PropertyControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get a property' do
     get property_path('EB-B5535')
-    assert_select '.title', 'Casa en Venta en Colinas de San Jerónimo Monterrey'
+    assert_select '.property-title', 'Casa en Venta en Colinas de San Jerónimo Monterrey'
   end
 end
