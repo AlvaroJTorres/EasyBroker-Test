@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+.properties-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 1.5em;
+  font-size: 20px;
+  background-color: rgb(226, 223, 223);
+  overflow-y: scroll;
+}
+
+.properties-container::-webkit-scrollbar {
+  display: none;
+}
+
+.properties-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.properties-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  position: relative;
+  background-color: white;
+  padding: 1em;
+}
+
+.properties-image {
+  height: 300px;
+}
+
+.properties-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.properties-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
