@@ -63,3 +63,9 @@
   text-decoration: none;
   color: black;
 }
+
+@media (max-width: 1024px) {
+  .pagination-container {
+    font-size: 1em;
+  }
+}

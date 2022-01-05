@@ -7,7 +7,11 @@ header {
 }
 
 .title {
-  color: white;
   padding: 0.5em;
   font-size: 3em;
+}
+
+.title a {
+  text-decoration: none;
+  color: white;
 }
