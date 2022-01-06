@@ -61,7 +61,7 @@ Method get /properties?page=:int
 http://localhost:3000/properties?page=2
 ```
 
-![List of Properties](storage/images/Screenshot_2022-01-05_20-44-01.png)
+![List of Properties](app/assets/images/Screenshot_2022-01-05_20-44-01.png)
 
 Method get /properties/:property_id
 
@@ -69,7 +69,7 @@ Method get /properties/:property_id
 http://localhost:3000/properties/EB-B5486
 ```
 
-![Show of a Property](storage/images/Screenshot_2022-01-05_20-48-45.png)
+![Show of a Property](app/assets/images/Screenshot_2022-01-05_20-48-45.png)
 
 Method post /properties/:property_id/create_contact
 
@@ -77,7 +77,7 @@ Method post /properties/:property_id/create_contact
 http://localhost:3000/properties/EB-B5486/create_contact
 ```
 
-![Contact created](storage/images/Screenshot_2022-01-05_20-49-25.png)
+![Contact created](app/assets/images/Screenshot_2022-01-05_20-49-25.png)
 
 ## General Instructions
 
@@ -89,7 +89,7 @@ http://localhost:3000
 
 2. Then you will see a page with 15 listed properties and a pagination bar at the bottom.
 
-![Pagination](storage/images/Screenshot_2022-01-05_21-02-18.png)
+![Pagination](app/assets/images/Screenshot_2022-01-05_21-02-18.png)
 
 3. Click in any number to traverse to that page and see other properties.
 
